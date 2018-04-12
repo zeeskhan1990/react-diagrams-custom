@@ -5,6 +5,7 @@ import { host } from "storybook-host";
 import { Helper } from "./.helpers/Helper";
 import { Toolkit } from "../src/Toolkit";
 
+import 'typeface-roboto'
 //include the SCSS for the demo
 import "./.helpers/demo.scss";
 

@@ -1,25 +1,65 @@
 import * as React from "react";
 import { DiamondNodeModel } from "./DiamondNodeModel";
-import { PortWidget } from "storm-react-diagrams";
+import { PortWidget, BaseWidget, BaseWidgetProps } from "storm-react-diagrams";
+import { withStyles } from 'material-ui/styles';
+import Card, { CardContent, CardMedia } from 'material-ui/Card';
+import IconButton from 'material-ui/IconButton';
+import Typography from 'material-ui/Typography';
+import SkipPreviousIcon from '@material-ui/icons/SkipPrevious';
+import SkipNextIcon from '@material-ui/icons/SkipNext';
+import Divider from 'material-ui/Divider';
 
-export interface DiamonNodeWidgetProps {
+
+const styles = theme => ({
+  cardBasic: {
+    display: 'flex',
+  },
+  details: {
+    display: 'flex',
+    flexDirection: 'column',
+    minWidth: 180
+  },
+  content: {
+    flex: '1 0 auto',
+    backgroundColor: 'white'
+  },
+  controls: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'flex-start',
+    paddingLeft: theme.spacing.unit,
+    backgroundColor: theme.palette.background.default
+  },
+  playIcon: {
+    height: 38,
+    width: 38,
+  },
+  headerText: {
+    paddingRight:10
+  },
+  name: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center'
+  }
+});
+
+export interface DiamonNodeWidgetProps extends BaseWidgetProps{
 	node: DiamondNodeModel;
 	size?: number;
 }
 
 export interface DiamonNodeWidgetState {}
 
-/**
- * @author Dylan Vorster
- */
-export class DiamonNodeWidget extends React.Component<DiamonNodeWidgetProps, DiamonNodeWidgetState> {
+
+export class DiamonNodeWidget extends BaseWidget<DiamonNodeWidgetProps, DiamonNodeWidgetState> {
 	public static defaultProps: DiamonNodeWidgetProps = {
 		size: 150,
 		node: null
 	};
 
 	constructor(props: DiamonNodeWidgetProps) {
-		super(props);
+		super("srd-diamond-node", props);
 		this.state = {};
 	}
 
@@ -67,7 +107,8 @@ export class DiamonNodeWidget extends React.Component<DiamonNodeWidgetProps, Dia
 						left: -8
 					}}
 				>
-					<PortWidget name="left" node={this.props.node} />
+					<PortWidget name="leftBottom" node={this.props.node} />
+					<div>Teest</div>
 				</div>
 				<div
 					style={{
@@ -77,7 +118,7 @@ export class DiamonNodeWidget extends React.Component<DiamonNodeWidgetProps, Dia
 						top: -8
 					}}
 				>
-					<PortWidget name="top" node={this.props.node} />
+					<PortWidget name="leftTop" node={this.props.node} />
 				</div>
 				<div
 					style={{
@@ -87,7 +128,7 @@ export class DiamonNodeWidget extends React.Component<DiamonNodeWidgetProps, Dia
 						top: this.props.size / 2 - 8
 					}}
 				>
-					<PortWidget name="right" node={this.props.node} />
+					<PortWidget name="rightTop" node={this.props.node} />
 				</div>
 				<div
 					style={{
@@ -97,7 +138,7 @@ export class DiamonNodeWidget extends React.Component<DiamonNodeWidgetProps, Dia
 						top: this.props.size - 8
 					}}
 				>
-					<PortWidget name="bottom" node={this.props.node} />
+					<PortWidget name="rightBottom" node={this.props.node} />
 				</div>
 			</div>
 		);

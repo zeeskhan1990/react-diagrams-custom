@@ -33,11 +33,14 @@
 		"prepublishOnly": "yarn run build:ts:prod && yarn run build:sass:prod"
 	},
 	"dependencies": {
+		"@material-ui/icons": "^1.0.0-beta.42",
 		"closest": "^0.0.1",
 		"lodash": "^4.17.5",
+		"material-ui": "^1.0.0-beta.41",
 		"pathfinding": "^0.4.18",
 		"paths-js": "^0.4.7",
-		"react": "^16.2.0"
+		"react": "^16.2.0",
+		"typeface-roboto": "0.0.54"
 	},
 	"devDependencies": {
 		"@storybook/addon-actions": "^3.3.15",

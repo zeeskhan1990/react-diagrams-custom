@@ -2,9 +2,9 @@ import * as _ from "lodash";
 import { LinkModel, DiagramEngine, PortModel, DefaultLinkModel } from "storm-react-diagrams";
 
 export class DiamondPortModel extends PortModel {
-	position: string | "top" | "bottom" | "left" | "right";
+	position: string | "leftTop" | "leftBottom" | "rightTop" | "rightBottom";
 
-	constructor(pos: string = "top") {
+	constructor(pos: string = "leftTop") {
 		super(pos, "diamond");
 		this.position = pos;
 	}

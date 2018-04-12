@@ -9,9 +9,9 @@ import {
 import * as React from "react";
 
 // import the custom models
-import { DiamondNodeModel } from "./DiamondNodeModel";
 import { DiamondNodeFactory } from "./DiamondNodeFactory";
 import { SimplePortFactory } from "./SimplePortFactory";
+import { DiamondNodeModel } from "./DiamondNodeModel";
 import { DiamondPortModel } from "./DiamondPortModel";
 
 /**
@@ -35,7 +35,7 @@ export default () => {
 	node1.setPosition(100, 150);
 
 	//3-B) create our new custom node
-	var node2 = new DiamondNodeModel();
+	var node2 = new DiamondNodeModel("My node", );
 	node2.setPosition(250, 108);
 
 	var node3 = new DefaultNodeModel("Node 3", "red");
@@ -43,8 +43,8 @@ export default () => {
 	node3.setPosition(500, 150);
 
 	//3-C) link the 2 nodes together
-	var link1 = port1.link(node2.getPort("left"));
-	var link2 = port3.link(node2.getPort("right"));
+	var link1 = port1.link(node2.getPort("leftBottom"));
+	var link2 = port3.link(node2.getPort("rightTop"));
 
 	//4) add the models to the root graph
 	model.addAll(node1, node2, node3, link1, link2);
