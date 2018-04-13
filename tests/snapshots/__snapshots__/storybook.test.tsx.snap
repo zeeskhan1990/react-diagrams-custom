@@ -558,7 +558,7 @@ exports[`Storyshots Tests demos/demo-custom-node1/index.tsx 1`] = `
       }
     >
       <div
-        className="diamond-node"
+        className="coglite-node"
         style={
           Object {
             "height": 150,

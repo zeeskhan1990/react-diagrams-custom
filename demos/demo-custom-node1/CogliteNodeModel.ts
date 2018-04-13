@@ -1,21 +1,21 @@
 import { NodeModel, DiagramEngine } from "storm-react-diagrams";
-import { DiamondPortModel } from "./DiamondPortModel";
+import { CoglitePortModel } from "./CoglitePortModel";
 import * as _ from "lodash";
 
-export class DiamondNodeModel extends NodeModel {
-	//Possibe options, diamondIn & diamondOut
+export class CogliteNodeModel extends NodeModel {
+	//Possibe options, cogliteIn & cogliteOut
 	cogType: string;
 	name: string;
 	color: string;
-	constructor(cogType: string = "diamondIn", name: string = "Untitled", color: string = "rgb(0,192,255)") {
-		super("diamond");
+	constructor(cogType: string = "cogliteIn", name: string = "Untitled", color: string = "rgb(0,192,255)") {
+		super("coglite");
 		this.cogType = cogType;
 		this.name = name;
 		this.color = color;
-		this.addPort(new DiamondPortModel("leftTop"));
-		this.addPort(new DiamondPortModel("leftBottom"));
-		this.addPort(new DiamondPortModel("rightTop"));
-		this.addPort(new DiamondPortModel("rightBottom"));
+		this.addPort(new CoglitePortModel("leftTop"));
+		this.addPort(new CoglitePortModel("leftBottom"));
+		this.addPort(new CoglitePortModel("rightTop"));
+		this.addPort(new CoglitePortModel("rightBottom"));
 	}
 
 	deSerialize(object, engine: DiagramEngine) {

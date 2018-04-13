@@ -107,7 +107,7 @@ storiesOf("Advanced Techniques", module)
 
 storiesOf("Custom Models", module)
 	.add(
-		"Custom diamond node",
+		"Custom coglite node",
 		Helper.makeDemo(
 			require("./demo-custom-node1/index").default(),
 			require("!!raw-loader!./demo-custom-node1/index")
